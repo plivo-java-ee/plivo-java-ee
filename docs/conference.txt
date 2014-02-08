@@ -1,0 +1,27 @@
+action Request Parameters
+The following parameters are sent to the action URL if the action parameter is specified.
+
+ConferenceName	The conference room name.
+ConferenceUUID	Unique ID of the conference.
+ConferenceMemberID	Member ID in the conference
+RecordUrl	URL of the recorded file. Only available if record is set to true.
+RecordingID	ID of the recorded file. Only available if record is set to true.
+
+
+#############################
+
+callbackUrl Request Parameters
+The following parameters are sent to the callback URL if callbackUrl is specified.
+
+ConferenceAction	‘enter’ when user enters the conference, ‘exit’ when user leaves the conference, ‘digits’ when user presses matching digits ‘floor’if user is the floor holder in the conference ‘record’if conference has been recorded using record attribute.
+ConferenceName	The conference room name.
+ConferenceUUID	Unique ID of the conference.
+ConferenceMemberID	ID of call in the conference. (Not present if ConferenceAction is ‘record’)
+CallUUID	Unique identifier for this call. (Not present if ConferenceAction is ‘record’)
+ConferenceDigitsMatch	Sent if ConferenceAction is ‘digits’. 
+RecordUrl	Sent if ConferenceAction is set to record attribute. 
+RecordingID	Sent if ConferenceAction is set to record attribute. 
+RecordingDuration	Sent if ConferenceAction is set to record attribute. 
+RecordingDurationMs	Sent if ConferenceAction is set to record attribute. 
+RecordingStartMs	Sent if ConferenceAction is set to record attribute. 
+RecordingEndMs	Sent if ConferenceAction is set to record attribute. 
