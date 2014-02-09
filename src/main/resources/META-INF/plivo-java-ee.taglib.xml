@@ -78,7 +78,7 @@
 		<attribute>
 			<name>timeLimit</name>
 			<required>false</required>
-			<description>Allowed Values:Any integer >= 0. Default Value:0</description>
+			<description>Allowed Values:Any integer &#60;&#61; 0. Default Value:0</description>
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
@@ -310,13 +310,13 @@
 		<attribute>
 			<name>numDigits</name>
 			<required>false</required>
-			<description>Allowed Values:integer >= 1. Default Value:99</description>
+			<description>Allowed Values:integer &#60;&#61; 1. Default Value:99</description>
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
 			<name>retries</name>
 			<required>false</required>
-			<description>Allowed Values:integer >= 1. Default Value:1</description>
+			<description>Allowed Values:integer &#60;&#61; 1. Default Value:1</description>
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
@@ -369,13 +369,265 @@
 			<type>java.lang.String</type>
 		</attribute>
 	</tag>
-	Message
-Number
-Play
-PreAnswer
-Record
-Redirect
-Speak
-User
-Wait
+	<tag>
+		<tag-name>message</tag-name>
+		<description>The Message element is used to send a message.</description>
+		<component>
+			<component-type>message</component-type>
+		</component>
+		<attribute>
+			<name>src</name>
+			<required>true</required>
+			<description>Allowed Values:Must be a purchased, valid number. Default Value:none</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>dst</name>
+			<required>true</required>
+			<description>Allowed Values:Must be a valid number. Default Value:none</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<required>true</required>
+			<description>Allowed Values:sms. Default Value:sms</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>callbackUrl</name>
+			<required>true</required>
+			<description>Allowed Values:absolute URL. Default Value:none</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>callbackMethod</name>
+			<required>true</required>
+			<description>Allowed Values:GET, POST. Default Value:POST</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>number</tag-name>
+		<description>The Number element is used to specify a phone number to dial.</description>
+		<component>
+			<component-type>number</component-type>
+		</component>
+		<attribute>
+			<name>sendDigits</name>
+			<required>true</required>
+			<description>Allowed Values:any digits. Default Value:none</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>sendOnPreanswer</name>
+			<required>true</required>
+			<description>Allowed Values:true or false. Default Value:false</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>play</tag-name>
+		<description>The Play element is used to play an audio file to the caller.</description>
+		<component>
+			<component-type>play</component-type>
+		</component>
+		<attribute>
+			<name>loop</name>
+			<required>true</required>
+			<description>Allowed Values:integer &#60;&#61; 0. Default Value:1</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>preAnswer</tag-name>
+		<description>The PreAnswer element answers the incoming call in early media mode.</description>
+		<component>
+			<component-type>preAnswer</component-type>
+		</component>
+	</tag>
+	<tag>
+		<tag-name>record</tag-name>
+		<description>The Record element is used to record a call and returns the URL of the recording file.</description>
+		<component>
+			<component-type>record</component-type>
+		</component>
+		<attribute>
+			<name>action</name>
+			<required>true</required>
+			<description>Allowed Values:absolute URL (mandatory). Default Value:no default action for Record</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>method</name>
+			<required>true</required>
+			<description>Allowed Values:GET, POST. Default Value:POST</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>fileFormat</name>
+			<required>true</required>
+			<description>Allowed Values:mp3, wav. Default Value:mp3</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>redirect</name>
+			<required>true</required>
+			<description>Allowed Values:true, false. Default Value:true</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>timeout</name>
+			<required>true</required>
+			<description>Allowed Values:positive integer. Default Value:15</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>maxLength</name>
+			<required>true</required>
+			<description>Allowed Values:integer greater than 1. Default Value:60 (1 min)</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>playBeep</name>
+			<required>true</required>
+			<description>Allowed Values:true, false. Default Value:true</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>finishOnKey</name>
+			<required>true</required>
+			<description>Allowed Values:any digit, #, *. Default Value:1234567890*#</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>recordSession</name>
+			<required>true</required>
+			<description>Allowed Values:true, false. Default Value:false</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>startOnDialAnswer</name>
+			<required>true</required>
+			<description>Allowed Values:true, false. Default Value:false</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>transcriptionType</name>
+			<required>true</required>
+			<description>Allowed Values:"auto - hybrid. Default Value:auto</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>transcriptionUrl</name>
+			<required>true</required>
+			<description>Allowed Values:absolute URL. Default Value:none</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>transcriptionMethod</name>
+			<required>true</required>
+			<description>Allowed Values:GET, POST. Default Value:GET</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>callbackUrl</name>
+			<required>true</required>
+			<description>Allowed Values:absolute URL. Default Value:none</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>callbackMethod</name>
+			<required>true</required>
+			<description>Allowed Values:GET, POST. Default Value:POST</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>redirect</tag-name>
+		<description>The Redirect element is used to transfer the control of a call at a different URL, which then starts processing the new XML response.</description>
+		<component>
+			<component-type>redirect</component-type>
+		</component>
+		<attribute>
+			<name>method</name>
+			<required>true</required>
+			<description>Allowed Values:GET, POST. Default Value:POST</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>speak</tag-name>
+		<description>The Speak element is used to read out text as speech to the caller.</description>
+		<component>
+			<component-type>speak</component-type>
+		</component>
+		<attribute>
+			<name>voice</name>
+			<required>true</required>
+			<description>Allowed Values:'WOMAN', 'MAN'. Default Value: 'WOMAN'</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>language</name>
+			<required>true</required>
+			<description>Allowed Values:See Supported voices and languages. Default Value:en-US</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>loop</name>
+			<required>true</required>
+			<description>Allowed Values:integer &#60;&#61; 0 (0 indicates a continuous loop.). Default Value:1</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>user</tag-name>
+		<description>The User element is used to specify a SIP endpoint (user) to dial.</description>
+		<component>
+			<component-type>user</component-type>
+		</component>
+		<attribute>
+			<name>sendDigits</name>
+			<required>true</required>
+			<description>Allowed Values:Any digits. Default Value:none</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>sendOnPreanswer</name>
+			<required>true</required>
+			<description>Allowed Values:true or false. Default Value:false</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>sipHeaders</name>
+			<required>true</required>
+			<description>Allowed Values: [A-Z],[a-z],[0-9] and '%' characters are allowed in a URL. Default Value:empty</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>wait</tag-name>
+		<description>The Wait element waits silently for a specified number of seconds.</description>
+		<component>
+			<component-type>wait</component-type>
+		</component>
+		<attribute>
+			<name>length</name>
+			<required>true</required>
+			<description>Allowed Values:integer > 0. Default Value:1</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>silence</name>
+			<required>true</required>
+			<description>Allowed Values:true or false. Default Value:false</description>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>minSilence</name>
+			<required>true</required>
+			<description>Allowed Values: integer > 0. Default Value:2000</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
 </facelet-taglib>
