@@ -39,7 +39,20 @@ public enum ElementsAttributes {
 	confirmKey, 
 	dialMusic, 
 	sipHeaders,
-
+	
+	sendDigits,
+	sendOnPreanswer,
+		
+	ipHeaders,
+	
+	async,
+	
+	finishOnKey,
+	numDigits,
+	playBeep,
+	validDigits,
+	invalidDigitsSound,
+	log,
 	
 	
 	
