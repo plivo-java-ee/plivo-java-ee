@@ -6,10 +6,9 @@
  */
 package org.plivo.ee.faces.component.api.util;
 
-public class Constants
-{
-   public static final String FAMILY = "plivo-java-ee";
-   public static final String RENDER_TYPE = "customComponent.plivo-java-ee";
-   public static final Object VERSION = "6.0.0";
+public class Constants {
+	public static final String FAMILY = "plivo-java-ee";
+	public static final String RENDER_TYPE = "customComponent.plivo-java-ee";
+	public static final Object VERSION = "6.0.0";
 
 }
