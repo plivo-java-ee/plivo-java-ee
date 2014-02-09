@@ -3,7 +3,7 @@
  *
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://www.eclipse.org/legal/epl-v10.html
- */ 
+ */
 package org.plivo.ee.faces.component;
 
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.language;
@@ -14,8 +14,8 @@ import static org.plivo.ee.faces.component.api.util.TagUtils.addAttribute;
 import static org.plivo.ee.faces.component.api.util.TagUtils.addText;
 import static org.plivo.ee.faces.component.api.util.TagUtils.end;
 import static org.plivo.ee.faces.component.api.util.TagUtils.start;
-import static org.plivo.ee.faces.component.api.util.Elements.Say;
-import static org.plivo.ee.faces.component.api.util.Elements.say;
+import static org.plivo.ee.faces.component.api.util.Elements.Speak;
+import static org.plivo.ee.faces.component.api.util.Elements.speak;
 
 import java.io.IOException;
 
@@ -24,8 +24,7 @@ import javax.faces.context.FacesContext;
 
 import org.plivo.ee.faces.component.api.Component;
 
-
-@FacesComponent(say)
+@FacesComponent(speak)
 public class Speak extends Component {
 
 	@Override

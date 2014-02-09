@@ -6,21 +6,23 @@
  */
 package org.plivo.ee.faces.component;
 
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.method.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.timeout.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.finishOnKey.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.numDigits.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.redirect.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.playBeep.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.validDigits.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.invalidDigitsSound.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.log.action;
 import static org.plivo.ee.faces.component.api.util.TagUtils.addAttribute;
 import static org.plivo.ee.faces.component.api.util.TagUtils.end;
 import static org.plivo.ee.faces.component.api.util.TagUtils.start;
 import static org.plivo.ee.faces.component.api.util.Elements.GetDigits;
 import static org.plivo.ee.faces.component.api.util.Elements.getDigits;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.action;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.method;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.timeout;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.digitTimeout;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.finishOnKey;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.numDigits;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.retries;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.redirect;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.playBeep;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.validDigits;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.invalidDigitsSound;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.log;
 
 import java.io.IOException;
 
@@ -45,6 +47,8 @@ public class GetDigits extends Component {
 		addAttribute(context, getAttributes(), validDigits.name());
 		addAttribute(context, getAttributes(), invalidDigitsSound.name());
 		addAttribute(context, getAttributes(), log.name());
+		addAttribute(context, getAttributes(), digitTimeout.name());
+		addAttribute(context, getAttributes(), retries.name());
 
 	}
 

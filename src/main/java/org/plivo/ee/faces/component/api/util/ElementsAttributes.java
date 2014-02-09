@@ -5,6 +5,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */ package org.plivo.ee.faces.component.api.util;
 
+
 public enum ElementsAttributes {
 
 	// Conference Attributes
@@ -44,15 +45,37 @@ public enum ElementsAttributes {
 	sendOnPreanswer,
 		
 	ipHeaders,
-	
+	digitTimeout,
 	async,
-	
+	retries,
 	finishOnKey,
 	numDigits,
 	playBeep,
 	validDigits,
 	invalidDigitsSound,
 	log,
+	
+	src,
+	dst,
+	type,
+	
+	
+	reason,
+	schedule,
+	
+	loop,
+	
+	fileFormat,
+	maxLength,
+	recordSession,
+	startOnDialAnswer,
+	
+	voice,
+	language,
+	
+	length,
+	silence,
+	minSilence,
 	
 	
 	
