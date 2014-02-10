@@ -3,7 +3,7 @@ plivo-java-ee
 
 <img src="docs/plivo_javaee_im.jpg">
 
-The purpose of this library is <b>simplify</b> the use of Plivo services in java enterprise application servers.
+The purpose of this library is <b>simplify</b> the use of <a href="http://www.plivo.com/">Plivo</a> services in java enterprise application servers.
 The library is usefull on various aspects:
 
 - to generate Plivo XML (using java server faces)
@@ -35,7 +35,7 @@ In your maven project you should have:
 ```
 
 
-<h2>Generate Plivo XML using JavaServer Faces</h2>
+<h2>Generate <a href="http://plivo.com/docs/xml/">Plivo XML</a> using JavaServer Faces</h2>
 
 <b>Using PLIVO JAVA HELPER LIBRARY</b>
 
@@ -99,7 +99,7 @@ You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 
 <b>This is more simple, and if you want change something, you mustn't recompile anything.</b>
 
-<h2>@Inject Plivo Request Parameters with java CDI</h2>
+<h2>@Inject <a href="http://plivo.com/docs/xml/request/">Plivo Request Parameters</a> with java CDI</h2>
 
 Work in progress! 
 
