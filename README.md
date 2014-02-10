@@ -6,9 +6,10 @@ The purpose of this library is <b>simplify</b> the use of Plivo services in java
 For more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a>
 <img src="docs/plivo_javaee_im.jpg">
 
-<h2>Generate Plivo XML using JavaServer Faces technology</h2>
+<h2>Generate Plivo XML using JavaServer Faces</h2>
 
 <b>Using PLIVO JAVA HELPER LIBRARY</b>
+You can generate xml code using the official library and you can publish the output generated using java Servlet.
 
 ```
 
@@ -41,6 +42,7 @@ public class ServletSample extends HttpServlet {
 ```
 
 <b>USING PLIVO JAVA EE</b>
+You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 
 ```
 
