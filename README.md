@@ -9,7 +9,8 @@ for more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org<
 
 Using PLIVO JAVA HELPER LIBRARY
 
-'
+```
+
 @WebServlet(description = "A simple Sample", urlPatterns = { "/servletsample" })
 public class ServletSample extends HttpServlet {
 
@@ -35,11 +36,13 @@ public class ServletSample extends HttpServlet {
 		}
 	}
 }
-'
+
+```
 
 USING PLIVO_JAVA-EE
 
-'
+```
+
 <?xml version="1.0" encoding="UTF-8"?>
 <f:view xmlns="http://www.w3c.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -50,7 +53,9 @@ USING PLIVO_JAVA-EE
 		</pj:dial>
 	</pj:response>
 </f:view>
-'
+
+```
+
 <img src="docs/plivo_javaee_im.jpg">
 
 <a href="http://www.plivo.com/">Plivo is a trademark of Plivo Inc.</a>
