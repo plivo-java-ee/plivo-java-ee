@@ -15,8 +15,17 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Conference Request Parameter: Member ID in the conference.
+ * 
+ * Conference CallbackUrl Action Request Parameter: ID of call in the
+ * conference. (Not present if ConferenceAction is 'record')
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

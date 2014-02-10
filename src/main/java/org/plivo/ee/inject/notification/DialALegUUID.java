@@ -15,8 +15,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Dial Request Parameter: CallUUID of A leg.
+ * 
+ * Dial CallbackUrl Request Parameter: CallUUID of A leg.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

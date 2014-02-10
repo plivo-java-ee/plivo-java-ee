@@ -18,11 +18,8 @@ import javax.inject.Qualifier;
 
 /**
  * <p>
- * Dial Request Parameter: CallUUID of B leg. Empty if nobody answers.
- * 
- * Dial CallbackUrl Request Parameter: CallUUID of B leg. Empty if nobody
- * answers.
- * 
+ * Message Request Parameter: Type of the message, For eg. sms
+ * </p>
  * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
  * 
@@ -30,6 +27,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ METHOD, FIELD, PARAMETER })
-public @interface DialBLegUUID {
+public @interface Type {
 
 }

@@ -18,11 +18,9 @@ import javax.inject.Qualifier;
 
 /**
  * <p>
- * Dial Request Parameter: CallUUID of B leg. Empty if nobody answers.
- * 
- * Dial CallbackUrl Request Parameter: CallUUID of B leg. Empty if nobody
- * answers.
- * 
+ * GetDigits Request Parameter: The digits the caller pressed, excluding
+ * the finishOnKey digit if used.
+ * </p>
  * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
  * 
@@ -30,6 +28,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ METHOD, FIELD, PARAMETER })
-public @interface DialBLegUUID {
+public @interface MessageUUID {
 
 }

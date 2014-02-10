@@ -15,8 +15,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Dial Request Parameter: The standard telephony hangup cause.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

@@ -18,11 +18,10 @@ import javax.inject.Qualifier;
 
 /**
  * <p>
- * Dial Request Parameter: CallUUID of B leg. Empty if nobody answers.
- * 
- * Dial CallbackUrl Request Parameter: CallUUID of B leg. Empty if nobody
- * answers.
- * 
+ * Call Request Parameter: Contains the standard telephony hangup cause of a
+ * call (inbound and outbound). In case the call is not hung up, this parameter
+ * will not be present.
+ * </p>
  * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
  * 
@@ -30,6 +29,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ METHOD, FIELD, PARAMETER })
-public @interface DialBLegUUID {
+public @interface HangupCause {
 
 }

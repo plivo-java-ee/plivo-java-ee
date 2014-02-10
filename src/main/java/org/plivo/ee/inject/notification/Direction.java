@@ -18,11 +18,11 @@ import javax.inject.Qualifier;
 
 /**
  * <p>
- * Dial Request Parameter: CallUUID of B leg. Empty if nobody answers.
- * 
- * Dial CallbackUrl Request Parameter: CallUUID of B leg. Empty if nobody
- * answers.
- * 
+ * Call Request Parameter: Indicates the direction of the call. In most cases
+ * this will be inbound, wherein the call would be in a ringing state. If you
+ * are using the Call API, the direction will be outbound, wherein the call will
+ * be in an answered state.
+ * </p>
  * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
  * 
@@ -30,6 +30,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ METHOD, FIELD, PARAMETER })
-public @interface DialBLegUUID {
+public @interface Direction {
 
 }

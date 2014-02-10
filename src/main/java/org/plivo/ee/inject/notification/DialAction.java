@@ -15,8 +15,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Dial CallbackUrl Request Parameter: answer or hangup or digits
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

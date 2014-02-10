@@ -15,8 +15,15 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Dial CallbackUrl Request Parameter: answer or hangup. This indicates if B leg
+ * answered or hung up.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

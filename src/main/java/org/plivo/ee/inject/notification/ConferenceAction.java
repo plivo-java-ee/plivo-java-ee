@@ -15,8 +15,17 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Conference CallbackUrl Request Parameter: 'enter' when user enters the
+ * conference, 'exit' when user leaves the conference, ‘digits’ when user
+ * presses matching digits ‘floor’if user is the floor holder in the conference
+ * ‘record’if conference has been recorded using record attribute.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

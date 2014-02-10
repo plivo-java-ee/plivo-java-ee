@@ -18,11 +18,11 @@ import javax.inject.Qualifier;
 
 /**
  * <p>
- * Dial Request Parameter: CallUUID of B leg. Empty if nobody answers.
- * 
- * Dial CallbackUrl Request Parameter: CallUUID of B leg. Empty if nobody
- * answers.
- * 
+ * Call Request Parameter: Indicates the status of the call. The value is set to
+ * either ringing, in-progress,or completed. In case the call is hung up, the
+ * CallStatus is set to completed for inbound calls and to completed, busy,
+ * failed, timeout or no-answer for outbound calls.
+ * </p>
  * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
  * 
@@ -30,6 +30,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ METHOD, FIELD, PARAMETER })
-public @interface DialBLegUUID {
+public @interface CallStatus {
 
 }

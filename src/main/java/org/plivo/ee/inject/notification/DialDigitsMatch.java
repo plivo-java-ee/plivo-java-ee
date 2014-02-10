@@ -15,8 +15,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Dial CallbackUrl Request Parameter: The digits pressed by A leg and matching
+ * one digits combination set in digitsMatch attribute. Only available when
+ * DialAction is set to digits.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

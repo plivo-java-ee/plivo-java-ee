@@ -1,2 +1,123 @@
+/**
+ * <p>
+ * Call Request Parameter: Contains the billed duration of the call in seconds. In case the call is not hung up, this parameter will not be present.
+ * </p>
+ *
+ * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ *
+ */
+ 
+ Call Request Parameters
 
-#dial
+OK - CallUUID	A unique identifier for this call.
+OK - From	The phone number of the party that initiated the call along with the country code. If the call is inbound, then it is the caller's caller ID. If the call is outbound i.e. initiated via a request to the API, then this is the phone number you specify as the caller ID.
+OK - To	The phone number of the called party with the country code. If the call is inbound, then it’s your incoming phone number. If the call is outbound, then it’s the phone number you provided to call.
+OK - ForwardedFrom	This parameter is set only when the call received by Plivo is a forwarded call. Its value depends on the caller’s carrier. Not all carriers pass this information.
+OK - CallStatus	Indicates the status of the call. The value is set to either ringing, in-progress,or completed. In case the call is hung up, the CallStatus is set to completed for inbound calls and to completed, busy, failed, timeout or no-answer for outbound calls.
+OK - Direction	Indicates the direction of the call. In most cases this will be inbound, wherein the call would be in a ringing state. If you are using the Call API, the direction will be outbound, wherein the call will be in an answered state.
+OK - ALegUUID	This contains a unique identifier which identifies the first leg of the call in case it is outbound. If the call direction is inbound, this parameter will not present.
+OK - ALegRequestUUID	Contains a unique request identifier which is returned by Plivo in case of a API request during an outbound call. In case the call direction is inbound, this parameter will not be present.
+OK - HangupCause	Contains the standard telephony hangup cause of a call (inbound and outbound). In case the call is not hung up, this parameter will not be present.
+OK - Duration	Contains the duration of the call in seconds. In case the call is not hung up, this parameter will not be present.
+OK - BillDuration	Contains the billed duration of the call in seconds. In case the call is not hung up, this parameter will not be present.
+ 
+
+Record CallbackUrl Request Parameters
+
+OK - RecordUrl	Complete path to the recorded file URL.
+OK - RecordingDuration	Duration of recording in seconds. If recordSession or startOnDialAnswer is true, the duration is always -1.
+OK - RecordingDurationMs	Duration of recording in milliseconds.
+OK - RecordingStartMs	When the recording started (epoch time UTC) in milliseconds.
+OK - RecordingEndMs	When the recording ended (epoch time UTC) in milliseconds.
+OK - RecordingID	Recording ID of the file.
+
+
+Record Action Request Parameters
+
+OK - RecordUrl	Complete path to the recorded file URL.
+OK - Digits	If set, the digits pressed to stop the record.
+OK - RecordingDuration	Duration of recording in seconds. If recordSession or startOnDialAnswer is true, duration is always set to -1.
+OK - RecordingDurationMs	Duration of recording in milliseconds.
+OK - RecordingStartMs	When the recording started (epoch time UTC) in milliseconds.
+OK - RecordingEndMs	When the recording ended (epoch time UTC) in milliseconds.
+OK - RecordingID	Recording ID of the file.
+
+
+Message Request Parameters
+
+OK - From	The source number of the message.
+OK - To	The number to which the message was sent.
+OK - Type	Type of the message, For eg. sms
+OK - Text	Message content
+OK - MessageUUID	A unique ID for the message
+
+
+Dial CallbackUrl Request Parameters
+
+OK - DialAction	answer or hangup or digits
+OK - DialBLegStatus	answer or hangup. This indicates if B leg answered or hung up.
+OK - DialALegUUID	CallUUID of A leg.
+OK - DialBLegUUID	CallUUID of B leg. Empty if nobody answers.
+OK - DialDigitsMatch	The digits pressed by A leg and matching one digits combination set in digitsMatch attribute. Only available when DialAction is set to digits.
+OK - DialBLegHangupCause	Dial hangup cause for B leg. Only available when DialAction is set to hangup.
+OK - DialBLegDuration	Dial duration in seconds from B leg. Only available when DialAction is set to hangup.
+OK - DialBLegBillDuration	Dial duration in seconds billed from B leg. Only available when DialAction is set to hangup.
+OK - DialBLegFrom	Dial caller number or SIP endpoint for B leg. Only available when DialAction is set to answer, digits or hangup.
+OK - DialBLegTo	Dial called number or SIP endpoint for B leg. Only available when DialAction is set to answer, digits or hangup.
+
+
+
+Dial action Request Parameters
+
+OK - DialRingStatus	This indicates if the <Dial> attempt rang or not. It can be true or false.
+OK - DialHangupCause	The standard telephony hangup cause.
+OK - DialStatus	Status of the dial.Can be completed, busy, failed, timeout or no-answer.
+OK - DialALegUUID	CallUUID of A leg.
+OK - DialBLegUUID	CallUUID of B leg. Empty if nobody answers.
+
+
+GetDigits Action Request Parameters
+
+OK - Digits	The digits the caller pressed, excluding the finishOnKey digit if used.
+
+
+Conference CallbackUrl Request Parameters
+
+OK - ConferenceAction	‘enter’ when user enters the conference, ‘exit’ when user leaves the conference, ‘digits’ when user presses matching digits ‘floor’if user is the floor holder in the conference ‘record’if conference has been recorded using record attribute.
+OK - ConferenceName	The conference room name.
+OK - ConferenceUUID	Unique ID of the conference.
+OK - ConferenceMemberID	ID of call in the conference. (Not present if ConferenceAction is ‘record’)
+OK - CallUUID	Unique identifier for this call. (Not present if ConferenceAction is ‘record’)
+OK - ConferenceDigitsMatch	Sent if ConferenceAction is ‘digits’. The digits pattern matching when call has pressed digits.
+OK - RecordUrl	Sent if ConferenceAction is set to record attribute. The URL of the recorded file.
+OK - RecordingID	Sent if ConferenceAction is set to record attribute. The ID of the recorded file.
+OK - RecordingDuration	Sent if ConferenceAction is set to record attribute. Duration of recording in seconds. If recordSession or startOnDialAnswer is true, the duration is always -1.
+OK - RecordingDurationMs	Sent if ConferenceAction is set to record attribute.  Duration of recording in milliseconds.
+OK - RecordingStartMs	Sent if ConferenceAction is set to record attribute. When the recording started (epoch time UTC) in milliseconds.
+OK - RecordingEndMs	Sent if ConferenceAction is set to record attribute. When the recording ended (epoch time UTC) in milliseconds.
+
+
+Conference Action Request Parameter:
+
+The following parameters are sent to the action URL if the action parameter is specified.
+
+OK - ConferenceName	The conference room name.
+OK - ConferenceUUID	Unique ID of the conference.
+OK - ConferenceMemberID	Member ID in the conference
+OK - RecordUrl	URL of the recorded file. Only available if record is set to true.
+OK - RecordingID	ID of the recorded file. Only available if record is set to true.
+
+
+
+Message
+
+callbackUrl parameters?? what waiting in callBack?
+
+
+Redirect
+
+COSA MANDA ALL'URL
+
+
+SIP Headers
+OK - XPh If you are using a SIP endpoint and you have configured your SIP phone to send some custom SIP headers starting with X-PH-, Plivo will send these SIP headers with the HTTP Request.

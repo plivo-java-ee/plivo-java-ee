@@ -15,8 +15,22 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * Conference CallbackUrl Request Parameter: Sent if ConferenceAction is set to
+ * record attribute. When the recording started (epoch time UTC) in
+ * milliseconds.
+ * 
+ * Record Request Parameter: When the recording started (epoch time UTC) in
+ * milliseconds.
+ * 
+ * Record CallbackUrl Request Parameter: When the recording started (epoch time
+ * UTC) in milliseconds.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

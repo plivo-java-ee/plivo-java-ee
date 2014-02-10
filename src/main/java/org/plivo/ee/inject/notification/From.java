@@ -18,11 +18,13 @@ import javax.inject.Qualifier;
 
 /**
  * <p>
- * Dial Request Parameter: CallUUID of B leg. Empty if nobody answers.
+ * Message Request Parameter: The source number of the message.
  * 
- * Dial CallbackUrl Request Parameter: CallUUID of B leg. Empty if nobody
- * answers.
- * 
+ * Call Request Parameter: The phone number of the party that initiated the call
+ * along with the country code. If the call is inbound, then it is the caller's
+ * caller ID. If the call is outbound i.e. initiated via a request to the API,
+ * then this is the phone number you specify as the caller ID.
+ * </p>
  * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
  * 
@@ -30,6 +32,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ METHOD, FIELD, PARAMETER })
-public @interface DialBLegUUID {
+public @interface From {
 
 }

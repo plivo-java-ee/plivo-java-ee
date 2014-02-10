@@ -16,8 +16,16 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
-/*
+/**
+ * <p>
+ * Conference CallbackUrl Request Parameter: Unique identifier for this call. (Not
+ * present if ConferenceAction is 'record')
+ * 
+ * Call Request Parameter: A unique identifier for this call.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

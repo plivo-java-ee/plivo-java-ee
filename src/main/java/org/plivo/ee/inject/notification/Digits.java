@@ -15,8 +15,17 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
-/*
+
+/**
+ * <p>
+ * GetDigits Request Parameter: The digits the caller pressed, excluding
+ * the finishOnKey digit if used.
+ * 
+ * Record Request Parameter: If set, the digits pressed to stop the record.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)

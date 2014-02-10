@@ -16,8 +16,22 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
-/*
+/**
+ * <p>
+ * Conference Request Parameter: URL of the recorded file. Only available
+ * if record is set to true.
+ * 
+ * Conference CallbackUrl Action Request Parameter: Sent if ConferenceAction is
+ * set to record attribute. The URL of the recorded file.
+ * 
+ * Record Request Parameter: Complete path to the recorded file URL.
+ * 
+ * 
+ * Record CallbackUrl Request Parameter: Complete path to the recorded file URL.
+ * </p>
+ * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ * 
  */
 @Qualifier
 @Retention(RUNTIME)
