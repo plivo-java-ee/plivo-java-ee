@@ -3,18 +3,18 @@ plivo-java-ee
 
 <img src="docs/plivo_javaee_im.jpg">
 
-The purpose of this library is <b>simplify</b> the use of Plivo services in java enterprise application servers.
+The purpose of this library is <b>simplify</b> the use of <a href="http://www.plivo.com/">Plivo</a> services in java enterprise application servers.
 The library is usefull on various aspects:
 
 - to generate Plivo XML (using java server faces)
 - to read the Plivo Request Parameters (using java CDI)
-- to call or to send messages using @Inject and @Request scoped java beans
-- to tracking the calls using special java web scope @Call (like @SessionScoped)
+- to call or to send messages using @Inject  @Request scoped java beans
+- to tracking the calls using special java scope @CallScope (like @SessionScoped)
 
 <b>You should know the difference between java SE and java EE</b>:
 
 - Java SE (formerly J2SE) is the basic Java environment (you only need a JVM to use Java SE).
-- <b>Java EE is the enterprise edition of Java</b>. With it, you make websites, large scale applications, using more advanced api and more powerful services integrated in the platform. Besides the JVM, you need an application server Java EE-compatible, like Oracle GlassFish, Red Hat JBoss 6,7.x, Red Hat WildFly 8, IBM WebSphere, Apache Geronimo, Apache Tommee and others.
+- <b>Java EE is the enterprise edition of Java</b>. With it, you make websites, large scale applications, using more advanced api and more powerful services integrated in the platform. Besides the JVM, you need an application server Java EE-compatible, like Oracle GlassFish, Red Hat JBoss 6,7.x, Red Hat WildFly 8, IBM WebSphere, Apache Geronimo, Apache Tomee and others.
 
 In your maven project you should have:
 
@@ -35,7 +35,7 @@ In your maven project you should have:
 ```
 
 
-<h2>Generate Plivo XML using JavaServer Faces</h2>
+<h2>Generate <a href="http://plivo.com/docs/xml/">Plivo XML</a> using JavaServer Faces</h2>
 
 <b>Using PLIVO JAVA HELPER LIBRARY</b>
 
@@ -99,7 +99,7 @@ You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 
 <b>This is more simple, and if you want change something, you mustn't recompile anything.</b>
 
-<h2>@Inject Plivo Request Parameters with java CDI</h2>
+<h2>@Inject <a href="http://plivo.com/docs/xml/request/">Plivo Request Parameters</a> with java CDI</h2>
 
 Work in progress! 
 
@@ -107,7 +107,7 @@ Work in progress!
 
 Work in progress! 
 
-<h2> Tracks the calls using special java scope @Call (like @SessionScoped)</h2>
+<h2> Special java scope @CallScope (like @SessionScoped)</h2>
 
 Work in progress! 
 
