@@ -9,7 +9,6 @@ The library is usefull on various aspects:
 - to call or to send messages using @Inject and @Request helper java beans
 - to tracking the calls using special java web scope @Call (like @SessionScoped)
 
-For more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a>
 <img src="docs/plivo_javaee_im.jpg">
 
 <h2>Generate Plivo XML using JavaServer Faces</h2>
@@ -76,6 +75,8 @@ You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 
 <b>This is more simple, and if you want change something, you mustn't recompile anything.</b>
 
+<b>FOR MORE INFORMATIONS OR TO COLLABORATE</b>
 
+For more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a> or send an email to fiorenzino[AT]gmail.com
 
 <a href="http://www.plivo.com/">Plivo is a trademark of Plivo Inc.</a>
