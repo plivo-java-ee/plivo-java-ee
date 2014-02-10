@@ -1,7 +1,13 @@
 plivo-java-ee
 =============
 
-The purpose of this library is <b>simplify</b> the use of Plivo services in java enterprise application servers like GlassFish, JBoss...
+The purpose of this library is <b>simplify</b> the use of Plivo services in java enterprise application servers like GlassFish, JBoss.
+The library is usefull on various aspects:
+
+- to generate Plivo XML (using java server faces)
+- to read the Plivo Request Parameters (using java CDI)
+- to call or to send messages using @Inject and @Request helper java beans
+- to tracking the calls using special java web scope @Call (like @SessionScoped)
 
 For more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a>
 <img src="docs/plivo_javaee_im.jpg">
