@@ -5,7 +5,7 @@ plivo for java ee developers
 
 for more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a>
 
-<h1> FIRST TARGET: generate Plivo XML using JavaServer Faces technology</h1>
+<h2>Generate Plivo XML using JavaServer Faces technology</h2>
 
 <b>Using PLIVO JAVA HELPER LIBRARY</b>
 
@@ -48,7 +48,9 @@ public class ServletSample extends HttpServlet {
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pj="http://plivo-java-ee.org/plivo-java-ee">
 	<pj:response>
-		<pj:dial callerId="12345678901" action="http://http://plivo-java-ee.org/redirect" method="GET">
+		<pj:dial callerId="12345678901" 
+			action="http://http://plivo-java-ee.org/redirect" 
+			method="GET">
 			<pj:number>12345678901</pj:number>
 		</pj:dial>
 	</pj:response>
