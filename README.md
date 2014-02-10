@@ -8,8 +8,8 @@ The library is usefull on various aspects:
 
 - to generate Plivo XML (using java server faces)
 - to read the Plivo Request Parameters (using java CDI)
-- to call or to send messages using @Inject and @Request scoped java beans
-- to tracking the calls using special java web scope @Call (like @SessionScoped)
+- to call or to send messages using @Inject  @Request scoped java beans
+- to tracking the calls using special java scope @CallScope (like @SessionScoped)
 
 <b>You should know the difference between java SE and java EE</b>:
 
@@ -107,7 +107,7 @@ Work in progress!
 
 Work in progress! 
 
-<h2> Tracks the calls using special java scope @Call (like @SessionScoped)</h2>
+<h2> Special java scope @CallScope (like @SessionScoped)</h2>
 
 Work in progress! 
 
