@@ -8,6 +8,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd"
 	version="2.0">
 	<namespace>http://plivo-java-ee.org/plivo-java-ee</namespace>
+	<description>The purpose of 'plivo-java-ee' library is simplify the use of Plivo services in java enterprise application servers.</description>
 	<composite-library-name>pj</composite-library-name>
 	<tag>
 		<tag-name>conference</tag-name>
@@ -60,7 +61,7 @@
 		<attribute>
 			<name>maxMembers</name>
 			<required>false</required>
-			<description>Allowed Values:Any integer > 0 and <= 200. Default Value:200</description>
+			<description>Allowed Values:Any integer &gt; 0 and &lt;= 200. Default Value:200</description>
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
