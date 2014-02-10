@@ -103,11 +103,11 @@ You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 
 Work in progress! 
 
-<h2>Call or Send messages using @Inject in @Request scoped java beans</h2>
+<h2>Call or Send messages using CDI @Inject</h2>
 
 Work in progress! 
 
-<h2> Tracks the calls using special java web scope @Call (like @SessionScoped)</h2>
+<h2> Tracks the calls using special java scope @Call (like @SessionScoped)</h2>
 
 Work in progress! 
 
