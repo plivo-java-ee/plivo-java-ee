@@ -14,6 +14,9 @@ import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
+/*
+ * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ */
 public class TagUtils {
 
 	public static void addAttribute(FacesContext context,

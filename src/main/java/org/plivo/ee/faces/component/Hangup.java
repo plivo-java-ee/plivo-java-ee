@@ -21,6 +21,9 @@ import javax.faces.context.FacesContext;
 
 import org.plivo.ee.faces.component.api.Component;
 
+/*
+ * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ */
 @FacesComponent(hangup)
 public class Hangup extends Component {
 

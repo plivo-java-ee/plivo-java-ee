@@ -3,7 +3,7 @@
  *
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://www.eclipse.org/legal/epl-v10.html
- */ 
+ */
 package org.plivo.ee.faces.component.api;
 
 import static org.plivo.ee.faces.component.api.util.Constants.FAMILY;
@@ -11,6 +11,9 @@ import static org.plivo.ee.faces.component.api.util.Constants.RENDER_TYPE;
 
 import javax.faces.component.UIOutput;
 
+/*
+ * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ */
 public class Component extends UIOutput {
 
 	@Override

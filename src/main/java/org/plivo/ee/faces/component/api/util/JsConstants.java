@@ -5,7 +5,9 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package org.plivo.ee.faces.component.api.util;
-
+/*
+ * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ */
 public class JsConstants
 {
 	

@@ -35,7 +35,9 @@ import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.plivo.ee.faces.component.api.Component;
-
+/*
+ * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ */
 @FacesComponent(dial)
 public class Dial extends Component {
 

@@ -6,6 +6,9 @@
  */
 package org.plivo.ee.faces.component.api.util;
 
+/*
+ * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
+ */
 public class Constants {
 	public static final String FAMILY = "plivo-java-ee";
 	public static final String RENDER_TYPE = "customComponent.plivo-java-ee";
