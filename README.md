@@ -14,7 +14,7 @@ The library is usefull on various aspects:
 <b>You should know the difference between java SE and java EE</b>:
 
 - Java SE (formerly J2SE) is the basic Java environment (you only need a JVM to use Java SE).
-- <b>Java EE is the enterprise edition of Java</b>. With it, you make websites, large scale applications, using more advanced api and more powerful services integrated in the platform. Besides the JVM, you need an application server Java EE-compatible, like Oracle GlassFish, Red Hat JBoss 6,7.x, Red Hat WildFly 8, IBM WebSphere, Apache Geronimo, Apache Tommee and others.
+- <b>Java EE is the enterprise edition of Java</b>. With it, you make websites, large scale applications, using more advanced api and more powerful services integrated in the platform. Besides the JVM, you need an application server Java EE-compatible, like Oracle GlassFish, Red Hat JBoss 6,7.x, Red Hat WildFly 8, IBM WebSphere, Apache Geronimo, Apache Tomee and others.
 
 In your maven project you should have:
 
