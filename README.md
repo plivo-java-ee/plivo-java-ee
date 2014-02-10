@@ -42,6 +42,9 @@ public class ServletSample extends HttpServlet {
 
 ```
 
+This is simple and also very performant, but if you want change something, <b>you must recompile and redeploy your servlet</b>.
+
+
 <b>USING PLIVO JAVA EE</b>
 
 You can create a simple page page.xhtml and you can use plivo-java-ee tags.
@@ -64,5 +67,9 @@ You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 </f:view>
 
 ```
+
+<b>This is more simple, and if you want change something, you mustn't recompile anything.</b>
+
+
 
 <a href="http://www.plivo.com/">Plivo is a trademark of Plivo Inc.</a>
