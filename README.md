@@ -5,9 +5,9 @@ plivo for java ee developers
 
 for more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a>
 
-1) use java server faces to product Plivo XML
+<h1> FIRST TARGET: generate Plivo XML using JavaServer Faces technology</h1>
 
-Using PLIVO JAVA HELPER LIBRARY
+<b>Using PLIVO JAVA HELPER LIBRARY</b>
 
 ```
 
@@ -39,7 +39,7 @@ public class ServletSample extends HttpServlet {
 
 ```
 
-USING PLIVO_JAVA-EE
+<b>USING PLIVO JAVA EE</b>
 
 ```
 
