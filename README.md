@@ -1,9 +1,10 @@
 plivo-java-ee
 =============
 
-plivo for java ee developers
+The purpose of this library is <b>simplify</b> the use of Plivo services in java enterprise application servers like GlassFish, JBoss...
 
-for more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a>
+For more informations <a href="http://www.plivo-java-ee.org/">plivo-java-ee.org</a>
+<img src="docs/plivo_javaee_im.jpg">
 
 <h2>Generate Plivo XML using JavaServer Faces technology</h2>
 
@@ -57,7 +58,5 @@ public class ServletSample extends HttpServlet {
 </f:view>
 
 ```
-
-<img src="docs/plivo_javaee_im.jpg">
 
 <a href="http://www.plivo.com/">Plivo is a trademark of Plivo Inc.</a>
