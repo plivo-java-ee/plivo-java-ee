@@ -102,9 +102,85 @@ You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 
 <h2>@Inject <a href="http://plivo.com/docs/xml/request/">Plivo Request Parameters</a> with java CDI</h2>
 
-Work in progress! 
+In your java cdi beans, you can inject all plivo Request Parameters.
+I.E.: 
 
-<h2>Call or Send messages using CDI @Inject</h2>
+If you use @RequestScoped cdi bean, you can use:
+
+```
+
+@Inject
+@From 
+String from;
+
+```
+
+or using some @SessionScoped cdi bean:
+
+```
+
+@Inject
+@From Instance<String> from;
+
+...
+public void doSomething() {
+	 System.out.println("from = " + from.get());
+}
+
+
+```
+
+Below, the complete list of @Injectable Request Parameters:
+
+```
+
+@ALegRequestUUID
+@ALegUUID
+@BillDuration
+@CallStatus
+@CallUUID
+@ConferenceAction
+@ConferenceDigitsMatch
+@ConferenceMemberID
+@ConferenceName
+@ConferenceUUID
+@DialAction
+@DialALegUUID
+@DialBLegBillDuration
+@DialBLegDuration
+@DialBLegFrom
+@DialBLegHangupCause
+@DialBLegStatus
+@DialBLegTo
+@DialBLegUUID
+@DialDigitsMatch
+@DialHangupCause
+@DialRingStatus
+@DialStatus
+@Digits
+@Direction
+@Duration
+@ForwardedFrom
+@From
+@HangupCause
+@MessageUUID
+@RecordingDuration
+@RecordingDurationMs
+@RecordingEndMs
+@RecordingID
+@RecordingStartMs
+@RecordUrl
+@RequestParameters
+@Text
+@To
+@Type
+@XPh
+
+```
+
+
+
+<h2>Call or Send messages @Injecting CDI java Helper classes </h2>
 
 Work in progress! 
 
