@@ -56,7 +56,7 @@ public class RequestParameterProducer extends AbstractRequestProducer {
 
 	@Produces
 	@RequestParameters
-	public RequestMap getTwilioRequestParams() {
+	public RequestMap getRequestParameters() {
 		return getRequestMapComplete(null);
 	}
 
