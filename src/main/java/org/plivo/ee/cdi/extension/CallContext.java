@@ -67,8 +67,8 @@ public class CallContext implements Context {
 			}
 			if (CallScopedInterface.class.isAssignableFrom(instance.getClass())) {
 				CallScopedInterface callScoped = (CallScopedInterface) instance;
-				if (callScoped != null && callScoped.getUUID() != null) {
-					return callScoped.getUUID();
+				if (callScoped != null && callScoped.getCallUUID() != null) {
+					return callScoped.getCallUUID();
 				}
 			}
 		} catch (Exception e) {

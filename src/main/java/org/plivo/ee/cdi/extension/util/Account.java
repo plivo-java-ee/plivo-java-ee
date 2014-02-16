@@ -1,6 +1,13 @@
+/*
+ * Copyright 2014 plivo-java-ee.org.
+ *
+ * Licensed under the Eclipse Public License version 1.0, available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.plivo.ee.cdi.extension.util;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 
 public class Account implements Serializable {
 
@@ -49,4 +56,27 @@ public class Account implements Serializable {
 		this.number = number;
 	}
 
+	public void setField(String name, Object value)
+			throws NoSuchFieldException, SecurityException,
+			IllegalArgumentException, IllegalAccessException {
+		Field field = getClass().getDeclaredField(name);
+		field.set(this, value);
+	}
+
+	public void isValid() throws Exception {
+		if (getName() == null || getName().isEmpty())
+			throw new Exception("Account Name is null or empty");
+
+		if (getNumber() == null || getNumber().isEmpty())
+			throw new Exception("Account Number [" + getName()
+					+ "] is null or empty");
+
+		if (getAuthId() == null || getAuthId().isEmpty())
+			throw new Exception("Account AuthId [" + getName()
+					+ "] is null or empty");
+
+		if (getAuthToken() == null || getAuthToken().isEmpty())
+			throw new Exception("Account AuthToken [" + getName()
+					+ "] is null or empty");
+	}
 }

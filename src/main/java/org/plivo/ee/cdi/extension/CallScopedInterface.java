@@ -7,5 +7,5 @@
 package org.plivo.ee.cdi.extension;
 
 public interface CallScopedInterface {
-	public String getUUID();
+	public String getCallUUID();
 }

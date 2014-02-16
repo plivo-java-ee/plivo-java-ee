@@ -13,7 +13,7 @@ import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 
-import org.plivo.ee.cdi.event.StatusCallbackEvent;
+import org.plivo.ee.cdi.event.HangupEvent;
 import org.plivo.ee.cdi.extension.util.Account;
 
 @ApplicationScoped
@@ -27,9 +27,9 @@ public class CallManager implements Serializable {
 	public CallManager() {
 	}
 
-	public void processEvent(@Observes StatusCallbackEvent event) {
-		if (event instanceof StatusCallbackEvent) {
-			getCallScopedMap().remove(event.getDialALegUUID());
+	public void processEvent(@Observes HangupEvent event) {
+		if (event instanceof HangupEvent) {
+			getCallScopedMap().remove(event.getCallUUID());
 		}
 	}
 
@@ -44,13 +44,13 @@ public class CallManager implements Serializable {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <T> T getOrCreate(String UUID, Object instance) {
+	public <T> T getOrCreate(String callUUID, Object instance) {
 		Object value = null;
-		if (getCallScopedMap().holdsValue(UUID)) {
-			value = getCallScopedMap().getContextualInstance(UUID);
+		if (getCallScopedMap().holdsValue(callUUID)) {
+			value = getCallScopedMap().getContextualInstance(callUUID);
 			return (T) value;
 		} else {
-			getCallScopedMap().put(UUID, instance);
+			getCallScopedMap().put(callUUID, instance);
 			return (T) instance;
 		}
 	}

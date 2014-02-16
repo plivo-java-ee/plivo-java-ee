@@ -12,9 +12,12 @@ import org.plivo.ee.cdi.producer.util.RequestMap;
 import org.plivo.ee.cdi.producer.util.RequestParamsEnum;
 import org.plivo.ee.inject.notification.ALegRequestUUID;
 import org.plivo.ee.inject.notification.ALegUUID;
+import org.plivo.ee.inject.notification.AnswerTime;
 import org.plivo.ee.inject.notification.BillDuration;
+import org.plivo.ee.inject.notification.BillRate;
 import org.plivo.ee.inject.notification.CallStatus;
 import org.plivo.ee.inject.notification.CallUUID;
+import org.plivo.ee.inject.notification.CallerName;
 import org.plivo.ee.inject.notification.ConferenceAction;
 import org.plivo.ee.inject.notification.ConferenceDigitsMatch;
 import org.plivo.ee.inject.notification.ConferenceMemberID;
@@ -36,6 +39,8 @@ import org.plivo.ee.inject.notification.DialStatus;
 import org.plivo.ee.inject.notification.Digits;
 import org.plivo.ee.inject.notification.Direction;
 import org.plivo.ee.inject.notification.Duration;
+import org.plivo.ee.inject.notification.EndTime;
+import org.plivo.ee.inject.notification.Event;
 import org.plivo.ee.inject.notification.ForwardedFrom;
 import org.plivo.ee.inject.notification.From;
 import org.plivo.ee.inject.notification.HangupCause;
@@ -47,8 +52,10 @@ import org.plivo.ee.inject.notification.RecordingEndMs;
 import org.plivo.ee.inject.notification.RecordingID;
 import org.plivo.ee.inject.notification.RecordingStartMs;
 import org.plivo.ee.inject.notification.RequestParameters;
+import org.plivo.ee.inject.notification.StartTime;
 import org.plivo.ee.inject.notification.Text;
 import org.plivo.ee.inject.notification.To;
+import org.plivo.ee.inject.notification.TotalCost;
 import org.plivo.ee.inject.notification.Type;
 import org.plivo.ee.inject.notification.XPh;
 
@@ -73,9 +80,27 @@ public class RequestParameterProducer extends AbstractRequestProducer {
 	}
 
 	@Produces
+	@AnswerTime
+	public String getAnswerTime() {
+		return get(RequestParamsEnum.AnswerTime.name());
+	}
+
+	@Produces
 	@BillDuration
 	public String getBillDuration() {
 		return get(RequestParamsEnum.BillDuration.name());
+	}
+
+	@Produces
+	@BillRate
+	public String getBillRate() {
+		return get(RequestParamsEnum.BillRate.name());
+	}
+
+	@Produces
+	@CallerName
+	public String getCallerName() {
+		return get(RequestParamsEnum.CallerName.name());
 	}
 
 	@Produces
@@ -217,6 +242,18 @@ public class RequestParameterProducer extends AbstractRequestProducer {
 	}
 
 	@Produces
+	@EndTime
+	public String getEndTime() {
+		return get(RequestParamsEnum.EndTime.name());
+	}
+
+	@Produces
+	@Event
+	public String getEvent() {
+		return get(RequestParamsEnum.Event.name());
+	}
+
+	@Produces
 	@ForwardedFrom
 	public String getForwardedFrom() {
 		return get(RequestParamsEnum.ForwardedFrom.name());
@@ -277,6 +314,12 @@ public class RequestParameterProducer extends AbstractRequestProducer {
 	}
 
 	@Produces
+	@StartTime
+	public String getStartTime() {
+		return get(RequestParamsEnum.StartTime.name());
+	}
+
+	@Produces
 	@Text
 	public String getText() {
 		return get(RequestParamsEnum.Text.name());
@@ -286,6 +329,12 @@ public class RequestParameterProducer extends AbstractRequestProducer {
 	@To
 	public String getTo() {
 		return get(RequestParamsEnum.To.name());
+	}
+
+	@Produces
+	@TotalCost
+	public String getTotalCost() {
+		return get(RequestParamsEnum.TotalCost.name());
 	}
 
 	@Produces
@@ -299,4 +348,5 @@ public class RequestParameterProducer extends AbstractRequestProducer {
 	public RequestMap getXPh() {
 		return getRequestMapComplete("X-PH-");
 	}
+
 }

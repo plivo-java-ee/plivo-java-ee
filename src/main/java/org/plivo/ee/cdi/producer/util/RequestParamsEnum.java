@@ -10,7 +10,10 @@ public enum RequestParamsEnum
 {
 	ALegRequestUUID,
 	ALegUUID,
+	AnswerTime,
 	BillDuration,
+	BillRate,
+	CallerName,
 	CallStatus,
 	CallUUID,
 	ConferenceAction,
@@ -34,6 +37,8 @@ public enum RequestParamsEnum
 	Digits,
 	Direction,
 	Duration,
+	EndTime,
+	Event,
 	ForwardedFrom,
 	From,
 	HangupCause,
@@ -45,8 +50,10 @@ public enum RequestParamsEnum
 	RecordingStartMs,
 	RecordUrl,
 	RequestParameters,
+	StartTime,
 	Text,
 	To,
+	TotalCost,
 	Type,
 	XPh;
 
