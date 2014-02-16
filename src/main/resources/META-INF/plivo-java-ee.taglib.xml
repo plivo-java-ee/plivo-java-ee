@@ -557,6 +557,19 @@
 		</attribute>
 	</tag>
 	<tag>
+		<tag-name>response</tag-name>
+		<description>The Response element is the parent element of Plivo's XML</description>
+		<component>
+			<component-type>response</component-type>
+		</component>
+		<attribute>
+			<name>method</name>
+			<required>true</required>
+			<description>Allowed Values:GET, POST. Default Value:POST</description>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
 		<tag-name>speak</tag-name>
 		<description>The Speak element is used to read out text as speech to the caller.</description>
 		<component>

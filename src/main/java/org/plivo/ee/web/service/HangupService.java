@@ -4,7 +4,7 @@
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.plivo.ee.web.controller;
+package org.plivo.ee.web.service;
 
 import java.io.Serializable;
 import java.util.logging.Logger;
@@ -32,7 +32,7 @@ import org.plivo.ee.inject.notification.TotalCost;
 
 @RequestScoped
 @Named
-public class HangupController implements Serializable {
+public class HangupService implements Serializable {
 
 	Logger logger = Logger.getLogger(getClass().getName());
 

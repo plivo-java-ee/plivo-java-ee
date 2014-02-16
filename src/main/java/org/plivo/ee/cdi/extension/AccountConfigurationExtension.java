@@ -30,22 +30,22 @@ import org.plivo.ee.cdi.extension.util.KeyValue;
  * @author Fiorenzo Pizza
  */
 public class AccountConfigurationExtension implements Extension {
-	static String TWILIO_PROPERTIES_FILE = "accounts.properties";
-	static String TWILIO_ACCOUNT_KEY = "twilio.accounts";
+	static String PROPERTIES_FILE = "accounts.properties";
+	static String ACCOUNT_KEY = "accounts";
 	Logger logger = Logger.getLogger(getClass().getName());
 
 	public void bind(@Observes AfterBeanDiscovery event, BeanManager beanManager) {
 		{
-			logger.info("TwilioConfigExtension starting up");
+			logger.info("AccountConfigurationExtension starting up");
 			InputStream stream = this.getClass().getClassLoader()
-					.getResourceAsStream(TWILIO_PROPERTIES_FILE);
+					.getResourceAsStream(PROPERTIES_FILE);
 			Map<String, Account> accounts = new HashMap<String, Account>();
 			Properties props = new Properties();
 			if (stream != null) {
 				try {
 					props.load(stream);
-					if (props.containsKey(TWILIO_ACCOUNT_KEY)) {
-						String value = (String) props.get(TWILIO_ACCOUNT_KEY);
+					if (props.containsKey(ACCOUNT_KEY)) {
+						String value = (String) props.get(ACCOUNT_KEY);
 						String[] names = value.split(",");
 						for (String name : names) {
 							Account account = new Account(name.trim()
@@ -55,14 +55,14 @@ public class AccountConfigurationExtension implements Extension {
 					}
 					for (Object k : props.keySet()) {
 						String key = (String) k;
-						if (!key.equals(TWILIO_ACCOUNT_KEY)) {
+						if (!key.equals(ACCOUNT_KEY)) {
 							KeyValue keyValue = from(key,
 									props.getProperty(key));
 							if (keyValue != null)
 								in(keyValue, accounts);
 						}
 					}
-					getTwilioManager(beanManager).setAccounts(accounts);
+					getCallManager(beanManager).setAccounts(accounts);
 					for (String accKey : accounts.keySet()) {
 						logger.info(accounts.get(accKey).toString());
 						// twilioAccounts.get(accKey).isValid();
@@ -79,12 +79,12 @@ public class AccountConfigurationExtension implements Extension {
 			} else {
 				logger.info("no file acounts.properties in class path");
 			}
-			logger.info("TwilioConfigExtension terminated");
+			logger.info("AccountConfigurationExtension exit");
 		}
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private CallManager getTwilioManager(BeanManager beanManager) {
+	private CallManager getCallManager(BeanManager beanManager) {
 		Bean phBean = (Bean) beanManager.getBeans(CallManager.class).iterator()
 				.next();
 		CreationalContext cc = beanManager.createCreationalContext(phBean);

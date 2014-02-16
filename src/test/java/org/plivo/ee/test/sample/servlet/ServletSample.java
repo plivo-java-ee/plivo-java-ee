@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.plivo.helper.exception.PlivoException;
-import com.plivo.helper.xml.elements.Dial;
-import com.plivo.helper.xml.elements.Number;
-import com.plivo.helper.xml.elements.PlivoResponse;
+import org.plivo.ee.helper.xml.elements.Number;
+import org.plivo.ee.helper.exception.PlivoException;
+import org.plivo.ee.helper.xml.elements.Dial;
+import org.plivo.ee.helper.xml.elements.PlivoResponse;
 
 @WebServlet(description = "A simple Sample", urlPatterns = { "/servletsample" })
 public class ServletSample extends HttpServlet {
