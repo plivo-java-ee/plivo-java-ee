@@ -32,11 +32,11 @@ public class Redirect extends Component {
 	public void encodeBegin(FacesContext context) throws IOException {
 		start(context, Redirect.name());
 		addAttribute(context, getAttributes(), method.name());
+		addText(context, getAttributes(), value.name());
 	}
 
 	@Override
 	public void encodeEnd(FacesContext context) throws IOException {
-		addText(context, getAttributes(), value.name());
 		end(context, Redirect.name());
 	}
 

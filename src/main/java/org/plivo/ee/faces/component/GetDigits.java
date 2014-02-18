@@ -39,19 +39,18 @@ public class GetDigits extends Component {
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		start(context, GetDigits.name());
-		addAttribute(context, getAttributes(), method.name());
 		addAttribute(context, getAttributes(), action.name());
+		addAttribute(context, getAttributes(), method.name());
 		addAttribute(context, getAttributes(), timeout.name());
+		addAttribute(context, getAttributes(), digitTimeout.name());
 		addAttribute(context, getAttributes(), finishOnKey.name());
 		addAttribute(context, getAttributes(), numDigits.name());
+		addAttribute(context, getAttributes(), retries.name());
 		addAttribute(context, getAttributes(), redirect.name());
 		addAttribute(context, getAttributes(), playBeep.name());
 		addAttribute(context, getAttributes(), validDigits.name());
 		addAttribute(context, getAttributes(), invalidDigitsSound.name());
 		addAttribute(context, getAttributes(), log.name());
-		addAttribute(context, getAttributes(), digitTimeout.name());
-		addAttribute(context, getAttributes(), retries.name());
-
 	}
 
 	@Override

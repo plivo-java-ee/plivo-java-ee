@@ -6,26 +6,26 @@
  */
 package org.plivo.ee.faces.component;
 
+import static org.plivo.ee.faces.component.api.util.Elements.Record;
+import static org.plivo.ee.faces.component.api.util.Elements.record;
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.action;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.method;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.callbackMethod;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.callbackUrl;
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.fileFormat;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.redirect;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.timeout;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.maxLength;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.playBeep;
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.finishOnKey;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.maxLength;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.method;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.playBeep;
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.recordSession;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.redirect;
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.startOnDialAnswer;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.timeout;
+import static org.plivo.ee.faces.component.api.util.ElementsAttributes.transcriptionMethod;
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.transcriptionType;
 import static org.plivo.ee.faces.component.api.util.ElementsAttributes.transcriptionUrl;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.transcriptionMethod;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.callbackUrl;
-import static org.plivo.ee.faces.component.api.util.ElementsAttributes.callbackMethod;
 import static org.plivo.ee.faces.component.api.util.TagUtils.addAttribute;
 import static org.plivo.ee.faces.component.api.util.TagUtils.end;
 import static org.plivo.ee.faces.component.api.util.TagUtils.start;
-import static org.plivo.ee.faces.component.api.util.Elements.Record;
-import static org.plivo.ee.faces.component.api.util.Elements.record;
 
 import java.io.IOException;
 
@@ -33,6 +33,7 @@ import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.plivo.ee.faces.component.api.Component;
+
 /*
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
  */
@@ -57,6 +58,10 @@ public class Record extends Component {
 		addAttribute(context, getAttributes(), transcriptionMethod.name());
 		addAttribute(context, getAttributes(), callbackUrl.name());
 		addAttribute(context, getAttributes(), callbackMethod.name());
+	}
+
+	@Override
+	public void encodeEnd(FacesContext context) throws IOException {
 		end(context, Record.name());
 	}
 }

@@ -32,7 +32,6 @@ public class Hangup extends Component {
 		start(context, Hangup.name());
 		addAttribute(context, getAttributes(), reason.name());
 		addAttribute(context, getAttributes(), schedule.name());
-
 		end(context, Hangup.name());
 	}
 

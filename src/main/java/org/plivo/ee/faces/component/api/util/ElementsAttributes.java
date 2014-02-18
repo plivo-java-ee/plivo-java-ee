@@ -17,7 +17,7 @@ public enum ElementsAttributes {
 
 	sendDigits, sendOnPreanswer,
 
-	ipHeaders, digitTimeout, async, retries, finishOnKey, numDigits, playBeep, validDigits, invalidDigitsSound, log,
+	digitTimeout, async, retries, finishOnKey, numDigits, playBeep, validDigits, invalidDigitsSound, log,
 
 	src, dst, type,
 
