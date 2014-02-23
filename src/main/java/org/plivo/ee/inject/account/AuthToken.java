@@ -19,9 +19,7 @@ import javax.inject.Qualifier;
 
 /**
  * <p>
- * Call Request Parameter: Contains a unique request identifier which is
- * returned by Plivo in case of a API request during an outbound call. In case
- * the call direction is inbound, this parameter will not be present.
+ * AuthToken
  * </p>
  * 
  * @author <a href="mailto:fiorenzo.pizza@gmail.com">Fiorenzo Pizza</a>
