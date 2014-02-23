@@ -29,6 +29,7 @@ public class CallManager implements Serializable {
 
 	public void processEvent(@Observes HangupEvent event) {
 		if (event instanceof HangupEvent) {
+			System.out.println(event.toString());
 			getCallScopedMap().remove(event.getCallUUID());
 		}
 	}

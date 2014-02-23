@@ -87,6 +87,9 @@ public class HangupService implements Serializable {
 	@Inject
 	Event<HangupEvent> hangupEventProducer;
 
+	public HangupService() {
+	}
+
 	public void hangup() {
 		HangupEvent hangupEvent = new HangupEvent(callStatus, callerName,
 				event, to, callUUID, totalCost, answerTime, direction,

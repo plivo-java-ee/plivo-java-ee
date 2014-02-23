@@ -15,40 +15,41 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CallScopedMap implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private Map<String, Object> beanStore = new ConcurrentHashMap<String, Object>();
+	private Map<String, Object> beanStore;
 
 	public synchronized void put(String name, Object instance) {
-		beanStore.put(name, instance);
+		getBeanStore().put(name, instance);
 	}
 
 	public Object getContextualInstance(String name) {
-		return beanStore.get(name);
+		return getBeanStore().get(name);
 	}
 
 	public Set<String> getVariableNames() {
-		return beanStore.keySet();
+		return getBeanStore().keySet();
 	}
 
 	public synchronized void putAll(Map<String, Object> variables) {
-		beanStore.putAll(variables);
+		getBeanStore().putAll(variables);
 	}
 
 	public Map<String, Object> getAll() {
-		return beanStore;
+		return getBeanStore();
 	}
 
 	public synchronized void clear() {
-		beanStore.clear();
+		getBeanStore().clear();
 	}
 
 	public boolean holdsValue(String name) {
-		return beanStore.containsKey(name);
+		if (name == null || name.trim().isEmpty())
+			return false;
+		return getBeanStore().containsKey(name);
 	}
 
 	public synchronized void remove(String name) {
-		if (beanStore.containsKey(name)) {
-			beanStore.remove(name);
+		if (getBeanStore().containsKey(name)) {
+			getBeanStore().remove(name);
 		}
 	}
 
@@ -56,6 +57,13 @@ public class CallScopedMap implements Serializable {
 		HashMap<String, Object> hashMap = new HashMap<String, Object>(beanStore);
 		beanStore.clear();
 		return hashMap;
+	}
+
+	public Map<String, Object> getBeanStore() {
+		if (beanStore == null) {
+			beanStore = new ConcurrentHashMap<String, Object>();
+		}
+		return beanStore;
 	}
 
 }

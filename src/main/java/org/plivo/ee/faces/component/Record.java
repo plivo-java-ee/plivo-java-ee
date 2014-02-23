@@ -58,10 +58,7 @@ public class Record extends Component {
 		addAttribute(context, getAttributes(), transcriptionMethod.name());
 		addAttribute(context, getAttributes(), callbackUrl.name());
 		addAttribute(context, getAttributes(), callbackMethod.name());
-	}
-
-	@Override
-	public void encodeEnd(FacesContext context) throws IOException {
 		end(context, Record.name());
 	}
+
 }
