@@ -18,7 +18,7 @@ import org.plivo.ee.inject.context.CallScoped;
 public class CallContextExtension implements Extension {
 	public void afterBeanDiscovery(@Observes AfterBeanDiscovery event,
 			BeanManager manager) {
-		event.addContext(new CallContext(manager));
+		event.addContext(new CallContext());
 	}
 
 	public void addScope(@Observes final BeforeBeanDiscovery event) {

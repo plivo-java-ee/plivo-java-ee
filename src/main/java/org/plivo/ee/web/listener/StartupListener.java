@@ -15,7 +15,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import org.plivo.ee.cdi.extension.CallManager;
+import org.plivo.ee.cdi.extension.CallScopeContextHolder;
 
 @WebListener
 public class StartupListener implements ServletContextListener {
@@ -23,7 +23,7 @@ public class StartupListener implements ServletContextListener {
 	Logger logger = Logger.getLogger(getClass().getName());
 
 	@Inject
-	CallManager callManager;
+	CallScopeContextHolder callManager;
 
 	public void contextDestroyed(ServletContextEvent sce) {
 		logger.info("context destroyed");

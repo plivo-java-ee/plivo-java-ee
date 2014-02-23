@@ -10,22 +10,23 @@ package org.plivo.ee.cdi.extension;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
-import javax.enterprise.context.ContextNotActiveException;
 import javax.enterprise.context.spi.Context;
 import javax.enterprise.context.spi.Contextual;
 import javax.enterprise.context.spi.CreationalContext;
+import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.Bean;
-import javax.enterprise.inject.spi.BeanManager;
 
+import org.plivo.ee.cdi.event.HangupEvent;
+import org.plivo.ee.cdi.extension.CallScopeContextHolder.CallScopedInstance;
 import org.plivo.ee.inject.context.CallScoped;
 import org.plivo.ee.inject.notification.CallUUID;
 
 public class CallContext implements Context {
 
-	private final BeanManager beanManager;
+	private CallScopeContextHolder callScopeContextHolder;
 
-	public CallContext(BeanManager beanManager) {
-		this.beanManager = beanManager;
+	public CallContext() {
+		this.callScopeContextHolder = CallScopeContextHolder.getInstance();
 	}
 
 	public <T> T get(final Contextual<T> contextual) {
@@ -34,28 +35,18 @@ public class CallContext implements Context {
 
 	public <T> T get(final Contextual<T> contextual,
 			final CreationalContext<T> creationalContext) {
-		assertActive();
-		Bean<T> bean = (Bean<T>) contextual;
-		T beanInstance = bean.create(creationalContext);
-		String callSid = getCallSid(beanInstance);
-		T toReturn = getCallManager().getOrCreate(callSid, beanInstance);
-		if (!toReturn.equals(beanInstance)) {
-			contextual.destroy(beanInstance, creationalContext);
-		}
-		return toReturn;
+		Bean bean = (Bean) contextual;
+		T t = (T) bean.create(creationalContext);
+		CallScopedInstance customInstance = new CallScopedInstance();
+		customInstance.bean = bean;
+		customInstance.ctx = creationalContext;
+		customInstance.instance = t;
+		String callSid = getCallUUID(t);
+		callScopeContextHolder.putBean(callSid, customInstance);
+		return t;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private CallManager getCallManager() {
-		Bean phBean = (Bean) beanManager.getBeans(CallManager.class).iterator()
-				.next();
-		CreationalContext cc = beanManager.createCreationalContext(phBean);
-		CallManager bean = (CallManager) beanManager.getReference(phBean,
-				CallManager.class, cc);
-		return bean;
-	}
-
-	private String getCallSid(Object instance) {
+	private String getCallUUID(Object instance) {
 		try {
 			Field[] fields = instance.getClass().getDeclaredFields();
 			for (Field field : fields) {
@@ -65,24 +56,10 @@ public class CallContext implements Context {
 					return (String) value;
 				}
 			}
-			if (CallScopedInterface.class.isAssignableFrom(instance.getClass())) {
-				CallScopedInterface callScoped = (CallScopedInterface) instance;
-				if (callScoped != null && callScoped.getCallUUID() != null) {
-					return callScoped.getCallUUID();
-				}
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	private void assertActive() {
-		if (!isActive()) {
-			throw new ContextNotActiveException(
-					"CallScoped context with scope annotation "
-							+ "@CallScoped is not active with respect to the current thread");
-		}
 	}
 
 	public Class<? extends Annotation> getScope() {
@@ -91,6 +68,14 @@ public class CallContext implements Context {
 
 	public boolean isActive() {
 		return true;
+	}
+
+	public void passivate(@Observes HangupEvent event) {
+		if (event instanceof HangupEvent) {
+			if (callScopeContextHolder.getBeans().containsKey(event.getCallUUID())) {
+				callScopeContextHolder.destroyBean(event.getCallUUID());
+			}
+		}
 	}
 
 }

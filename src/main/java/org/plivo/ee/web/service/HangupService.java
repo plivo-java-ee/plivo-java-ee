@@ -95,7 +95,7 @@ public class HangupService implements Serializable {
 				event, to, callUUID, totalCost, answerTime, direction,
 				billRate, hangupCause, duration, billDuration, endTime,
 				startTime, from);
-		logger.info(hangupEvent.toString());
+		logger.info("HangupEvent: " + callUUID);
 		hangupEventProducer.fire(hangupEvent);
 	}
 

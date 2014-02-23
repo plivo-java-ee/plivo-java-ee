@@ -13,10 +13,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.AfterBeanDiscovery;
-import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.Extension;
 
@@ -29,10 +27,15 @@ import org.plivo.ee.cdi.extension.util.KeyValue;
  * 
  * @author Fiorenzo Pizza
  */
-public class AccountConfigurationExtension implements Extension {
+public class AccountExtension implements Extension {
 	static String PROPERTIES_FILE = "accounts.properties";
 	static String ACCOUNT_KEY = "accounts";
 	Logger logger = Logger.getLogger(getClass().getName());
+	private AccountHolder accountHolder;
+
+	public AccountExtension() {
+		this.accountHolder = AccountHolder.getInstance();
+	}
 
 	public void bind(@Observes AfterBeanDiscovery event, BeanManager beanManager) {
 		{
@@ -62,7 +65,7 @@ public class AccountConfigurationExtension implements Extension {
 								in(keyValue, accounts);
 						}
 					}
-					getCallManager(beanManager).setAccounts(accounts);
+					this.accountHolder.setAccounts(accounts);
 					for (String accKey : accounts.keySet()) {
 						logger.info(accounts.get(accKey).toString());
 						// twilioAccounts.get(accKey).isValid();
@@ -81,16 +84,6 @@ public class AccountConfigurationExtension implements Extension {
 			}
 			logger.info("AccountConfigurationExtension exit");
 		}
-	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private CallManager getCallManager(BeanManager beanManager) {
-		Bean phBean = (Bean) beanManager.getBeans(CallManager.class).iterator()
-				.next();
-		CreationalContext cc = beanManager.createCreationalContext(phBean);
-		CallManager bean = (CallManager) beanManager.getReference(phBean,
-				CallManager.class, cc);
-		return bean;
 	}
 
 	private static KeyValue from(String key, String value) {

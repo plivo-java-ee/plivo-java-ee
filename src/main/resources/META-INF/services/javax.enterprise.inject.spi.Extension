@@ -1,2 +1,2 @@
 org.plivo.ee.cdi.extension.CallContextExtension
-org.plivo.ee.cdi.extension.AccountConfigurationExtension
+org.plivo.ee.cdi.extension.AccountExtension
