@@ -6,6 +6,7 @@
  */
 package org.plivo.ee.cdi.helper.simple;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -14,8 +15,9 @@ import org.plivo.ee.helper.api.client.simple.CallRestAPI;
 import org.plivo.ee.helper.api.response.call.Call;
 import org.plivo.ee.helper.exception.PlivoException;
 
-public class SimpleCaller {
+public class SimpleCaller implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	Logger logger = Logger.getLogger(getClass().getName());
 	private String authId;
 	private String authToken;
@@ -83,24 +85,6 @@ public class SimpleCaller {
 		return get(key);
 	}
 
-	public String getNumber() {
-		return get("from");
-	}
-
-	public SimpleCaller setNumber(String number) {
-		add("from", number);
-		return this;
-	}
-
-	public String getTo() {
-		return get("to");
-	}
-
-	public SimpleCaller setTo(String to) {
-		add("to", to);
-		return this;
-	}
-
 	public String getAuthId() {
 		return authId;
 	}
@@ -116,6 +100,24 @@ public class SimpleCaller {
 
 	public SimpleCaller setAuthToken(String authToken) {
 		this.authToken = authToken;
+		return this;
+	}
+
+	public String getNumber() {
+		return get("from");
+	}
+
+	public SimpleCaller setNumber(String number) {
+		add("from", number);
+		return this;
+	}
+
+	public String getTo() {
+		return get("to");
+	}
+
+	public SimpleCaller setTo(String to) {
+		add("to", to);
 		return this;
 	}
 
@@ -143,6 +145,132 @@ public class SimpleCaller {
 
 	public SimpleCaller setFallbackUrl(String fallbackUrl) {
 		add("fallback_url", fallbackUrl);
+		return this;
+	}
+
+	public String getAnswerMethod() {
+		return get("answer_method");
+	}
+
+	public SimpleCaller setAnswerMethod(String answerMethod) {
+		add("answer_method", answerMethod);
+		return this;
+	}
+
+	public String getRingUrl() {
+		return get("ring_url");
+	}
+
+	public SimpleCaller setRingUrl(String ringUrl) {
+		add("ring_url", ringUrl);
+		return this;
+	}
+
+	public String getRingMethod() {
+		return get("ring_method");
+	}
+
+	public SimpleCaller setRingMethod(String ringMethod) {
+		add("ring_method", ringMethod);
+		return this;
+	}
+
+	public String getHangupMethod() {
+		return get("hangup_method");
+	}
+
+	public SimpleCaller setHangupMethod(String hangupMethod) {
+		add("hangup_method", hangupMethod);
+		return this;
+	}
+
+	public String getFallbackMethod() {
+		return get("fallback_method");
+	}
+
+	public SimpleCaller setFallbackMethod(String fallbackMethod) {
+		add("fallback_method", fallbackMethod);
+		return this;
+	}
+
+	public String getCallerNamed() {
+		return get("caller_name");
+	}
+
+	public SimpleCaller setCallerNamed(String callerNamed) {
+		add("caller_name", callerNamed);
+		return this;
+	}
+
+	public String getSendSigits() {
+		return get("send_digits");
+	}
+
+	public SimpleCaller setSendDigits(String sendDigits) {
+		add("send_digits", sendDigits);
+		return this;
+	}
+
+	public String getSendOnPreanswer() {
+		return get("send_on_preanswer");
+	}
+
+	public SimpleCaller setSendOnPreanswer(String sendOnPreanswer) {
+		add("send_on_preanswer", sendOnPreanswer);
+		return this;
+	}
+
+	public String getTimeLimit() {
+		return get("time_limit");
+	}
+
+	public SimpleCaller setTimeLimit(String timeLimit) {
+		add("time_limit", timeLimit);
+		return this;
+	}
+
+	public String getHangupOnRing() {
+		return get("hangup_on_ring");
+	}
+
+	public SimpleCaller setHangupOnRing(String hangupOnRing) {
+		add("hangup_on_ring", hangupOnRing);
+		return this;
+	}
+
+	public String getMachineDetection() {
+		return get("machine_detection");
+	}
+
+	public SimpleCaller setMachineDetection(String machineDetection) {
+		add("machine_detection", machineDetection);
+		return this;
+	}
+
+	public String getMachineDetectionTime() {
+		return get("machine_detection_time");
+	}
+
+	public SimpleCaller setMachineDetectionTime(String machineDetectionTime) {
+		add("machine_detection_time", machineDetectionTime);
+		return this;
+	}
+
+	public String getSipHeaders() {
+		return get("sip_headers");
+	}
+
+	public SimpleCaller setSipHeaders(String sipHeaders) {
+		add("sip_headers", sipHeaders);
+		return this;
+	}
+
+	public String getRingTimeout() {
+		return get("ring_timeout");
+	}
+
+	public SimpleCaller setRingTimeout(String ringTimeout) {
+		add("ring_timeout", ringTimeout);
 		return this;
 	}
 
@@ -179,6 +307,62 @@ public class SimpleCaller {
 
 	public SimpleCaller param(String key, String value) {
 		return add(key, value);
+	}
+
+	public SimpleCaller answerMethod(String answerMethod) {
+		return setAnswerMethod(answerMethod);
+	}
+
+	public SimpleCaller ringUrl(String ringUrl) {
+		return setRingUrl(ringUrl);
+	}
+
+	public SimpleCaller ringMethod(String ringMethod) {
+		return setRingMethod(ringMethod);
+	}
+
+	public SimpleCaller hangupMethod(String hangupMethod) {
+		return setHangupMethod(hangupMethod);
+	}
+
+	public SimpleCaller fallbackMethod(String fallbackMethod) {
+		return setFallbackMethod(fallbackMethod);
+	}
+
+	public SimpleCaller callerNamed(String callerNamed) {
+		return setCallerNamed(callerNamed);
+	}
+
+	public SimpleCaller sendDigits(String sendDigits) {
+		return setSendDigits(sendDigits);
+	}
+
+	public SimpleCaller sendOnPreanswer(String sendOnPreanswer) {
+		return setSendOnPreanswer(sendOnPreanswer);
+	}
+
+	public SimpleCaller timeLimit(String timeLimit) {
+		return setTimeLimit(timeLimit);
+	}
+
+	public SimpleCaller hangupOnRing(String hangupOnRing) {
+		return setHangupOnRing(hangupOnRing);
+	}
+
+	public SimpleCaller machineDetection(String machineDetection) {
+		return setMachineDetection(machineDetection);
+	}
+
+	public SimpleCaller machineDetectionTime(String machineDetectionTime) {
+		return setMachineDetectionTime(machineDetectionTime);
+	}
+
+	public SimpleCaller sipHeaders(String sipHeaders) {
+		return setSipHeaders(sipHeaders);
+	}
+
+	public SimpleCaller ringTimeout(String ringTimeout) {
+		return setRingTimeout(ringTimeout);
 	}
 
 }

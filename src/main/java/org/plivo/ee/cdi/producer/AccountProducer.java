@@ -12,6 +12,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 import org.plivo.ee.cdi.extension.AccountHolder;
 import org.plivo.ee.cdi.extension.util.Account;
 import org.plivo.ee.cdi.helper.Caller;
+import org.plivo.ee.cdi.helper.Sender;
 import org.plivo.ee.cdi.producer.util.ELUtils;
 import org.plivo.ee.inject.account.AccountNumber;
 import org.plivo.ee.inject.account.AuthId;
@@ -120,7 +121,7 @@ public class AccountProducer extends AbstractRequestProducer {
 
 	@Produces
 	@PlivoAccount
-	public Caller getTwilioCaller(InjectionPoint injectionPoint) {
+	public Caller getCaller(InjectionPoint injectionPoint) {
 		String accountName = injectionPoint.getAnnotated()
 				.getAnnotation(PlivoAccount.class).accountName();
 		if (accountHolder != null) {
@@ -140,6 +141,35 @@ public class AccountProducer extends AbstractRequestProducer {
 					account = accountHolder.getAccount(accountName);
 					if (account != null)
 						return new Caller(account.getNumber(),
+								account.getAuthId(), account.getAuthToken());
+				}
+			}
+		}
+		return null;
+	}
+
+	@Produces
+	@PlivoAccount
+	public Sender getSender(InjectionPoint injectionPoint) {
+		String accountName = injectionPoint.getAnnotated()
+				.getAnnotation(PlivoAccount.class).accountName();
+		if (accountHolder != null) {
+			if (accountName == null || accountName.isEmpty()
+					|| accountName.toLowerCase().equals("default"))
+				return new Sender(
+						accountHolder.getDefaultAccount().getNumber(),
+						accountHolder.getDefaultAccount().getAuthId(),
+						accountHolder.getDefaultAccount().getAuthToken());
+			else {
+				Account account;
+				if (ELUtils.isElExpression(accountName)) {
+					accountName = ELUtils.resolveElExpression(accountName,
+							facesContext());
+				}
+				if (accountName != null) {
+					account = accountHolder.getAccount(accountName);
+					if (account != null)
+						return new Sender(account.getNumber(),
 								account.getAuthId(), account.getAuthToken());
 				}
 			}

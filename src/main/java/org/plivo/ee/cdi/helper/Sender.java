@@ -10,23 +10,23 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.plivo.ee.cdi.helper.simple.SimpleCaller;
+import org.plivo.ee.cdi.helper.simple.SimpleSender;
 import org.plivo.ee.inject.account.AccountNumber;
 import org.plivo.ee.inject.account.AuthId;
 import org.plivo.ee.inject.account.AuthToken;
 
 @Named
 @RequestScoped
-public class Caller extends SimpleCaller {
+public class Sender extends SimpleSender {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	public Caller(@AccountNumber String number, @AuthId String authId,
+	public Sender(@AccountNumber String number, @AuthId String authId,
 			@AuthToken String authToken) {
 		super(number, authId, authToken);
 	}
 
-	public Caller() {
+	public Sender() {
 	}
 }
