@@ -79,4 +79,14 @@ public class Account implements Serializable {
 			throw new Exception("Account AuthToken [" + getName()
 					+ "] is null or empty");
 	}
+
+	@Override
+	public String toString() {
+		return "Account [" + (name != null ? "name=" + name + ", " : "")
+				+ (authId != null ? "authId=" + authId + ", " : "")
+				+ (authToken != null ? "authToken=" + authToken + ", " : "")
+				+ (number != null ? "number=" + number : "") + "]";
+	}
+	
+	
 }
