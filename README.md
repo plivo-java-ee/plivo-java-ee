@@ -234,7 +234,7 @@ You can inject a Caller (java helper class to use plivo call services), annotate
 Caller caller;
 
 ```
-and after you can call:
+and after that, you can call using:
 
 ```
 try {
@@ -248,6 +248,7 @@ try {
 
 
 ```
+In this case the setting of "from" parameter is done using the number inside the Plivo account.
 If you would like to send a message (SMS), in similar way, you can inject a Sender:
 
 ```
@@ -258,7 +259,7 @@ Sender sender;
 	
 ```
 
-and after you can send a sms in simple way:
+and after that, you can send a sms in simple way:
 
 ```
 try {
@@ -272,6 +273,7 @@ try {
 
 
 ```
+In this case the setting of "src" parameter is done using the number inside the Plivo account.
 
 
 <h2> Special java scope @CallScope (like @SessionScoped)</h2>
