@@ -84,9 +84,10 @@ You can create a simple page page.xhtml and you can use plivo-java-ee tags.
 ```
 
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ Copyright 2014 plivo-java-ee.org. Licensed under the Eclipse Public License version 1.0, available at http://www.eclipse.org/legal/epl-v10.html -->
 <f:view xmlns="http://www.w3c.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:pj="http://plivo-java-ee.org/plivo-java-ee">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pj="http://plivo-java-ee.org/plivo-java-ee" transient="true">
 	<pj:response>
 		<pj:dial callerId="12345678901" 
 			action="http://http://plivo-java-ee.org/redirect" 
