@@ -35,7 +35,7 @@ In your maven project you should have:
 ```
 
 
-<h2>Generate <a href="http://plivo.com/docs/xml/">Plivo XML</a> using JavaServer Faces</h2>
+<h2>Generate <a href="http://plivo.com/docs/xml/">Plivo XML</a> using PLIVO JAVA EE</h2>
 <a href="http://htmlpreview.github.io/?https://raw.github.com/plivo-java-ee/plivo-java-ee/master/docs/vdldoc/index.html">If you want know all jsf tags, you should consult the vdldoc page</a>
 
 <b>Using PLIVO JAVA HELPER LIBRARY</b>
