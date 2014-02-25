@@ -276,7 +276,31 @@ try {
 
 <h2> Special java scope @CallScope (like @SessionScoped)</h2>
 
-Work in progress! 
+
+If you want to use the same instance of java bean for the during of conversation between Plivo server and your server, you can annotate your class with @CallScoped: it's like the java standard @SessionScoped scope.
+The "pseudo session" starts with the receiving of @CallUUID parameter, and is active untill the plivo server call the URL: http://yourserver.com/appName/hangup.jsf.
+
+
+```
+@Named
+@CallScoped
+public class CallController implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	Logger logger = Logger.getLogger(getClass().getName());
+		
+	@Inject
+	@CallUUID
+	private String callUUID;
+	
+	public CallController() {
+	}
+	
+	.....
+}
+
+```
+
 
 <h2>More informations</h2>
 
