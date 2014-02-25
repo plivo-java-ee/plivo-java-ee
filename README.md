@@ -224,6 +224,51 @@ Below, the complete list of @Injectable Request Parameters:
 
 
 <h2>Call or Send messages @Injecting CDI java Helper classes </h2>
+In your application you should create a simple propertiee file named accounts.properties, where you will insert your plivo parameters:
+
+```
+
+accounts=default, pippo, pluto
+# default account
+account.default.authId=xxx
+account.default.authToken=xxx
+account.default.number=xxx
+
+# default pippo
+account.pippo.authId=xxx
+account.pippo.authToken=xxx
+account.pippo.number=xxx
+
+
+# default pluto
+account.pluto.authId=xxx
+account.pluto.authToken=xxx
+account.pluto.number=xxx
+
+```
+
+The accounts.properties should be insert in the classes space:
+in the war that file should be inserted in:
+
+```
+WEB-INF/classe/accounts.properties
+```
+You can inject the contextual Account in your classes using:
+
+```
+@Inject
+@PlivoAccount
+Account account;
+```
+in this case you will use the "default" account.
+
+or using the accountName:
+
+```
+@Inject
+@PlivoAccount(accountName = "default")
+Account account;
+```
 
 You can inject a Caller (java helper class to use plivo call services), annotated with your Plivo account:
 
