@@ -225,7 +225,54 @@ Below, the complete list of @Injectable Request Parameters:
 
 <h2>Call or Send messages @Injecting CDI java Helper classes </h2>
 
-Work in progress! 
+You can inject a Caller (java helper class to use plivo call services), annotated with your Plivo account:
+
+```
+
+@Inject
+@PlivoAccount(accountName = "default")
+Caller caller;
+
+```
+and after you can call:
+
+```
+try {
+	String requestUUID = caller.answerUrl(ANSWER_URL)
+		.hangupUrl(HANGUP_URL).fallbackUrl(FALLBACK_URL)
+		.to(getTo()).call();
+	logger.info("requestUUID: " + requestUUID);
+} catch (PlivoException e) {
+	e.printStackTrace();
+}
+
+
+```
+If you would like to send a message (SMS), in similar way, you can inject a Sender:
+
+```
+
+@Inject
+@PlivoAccount(accountName = "default")
+Sender sender;
+	
+```
+
+and after you can send a sms in simple way:
+
+```
+try {
+	String messageUID = sender.url(URL).dst(getDst())
+			.text(getMessage()).send();
+	setResult(messageUID);
+	logger.info("messageUID: " + messageUID);
+} catch (PlivoException e) {
+	e.printStackTrace();
+}
+
+
+```
+
 
 <h2> Special java scope @CallScope (like @SessionScoped)</h2>
 
