@@ -227,20 +227,21 @@ Below, the complete list of @Injectable Request Parameters:
 In your application you should create a simple propertiee file named accounts.properties, where you will insert your plivo parameters:
 
 ```
-
+# three accounts
 accounts=default, pippo, pluto
+
 # default account
 account.default.authId=xxx
 account.default.authToken=xxx
 account.default.number=xxx
 
-# default pippo
+# pippo	account
 account.pippo.authId=xxx
 account.pippo.authToken=xxx
 account.pippo.number=xxx
 
 
-# default pluto
+# pluto account
 account.pluto.authId=xxx
 account.pluto.authToken=xxx
 account.pluto.number=xxx
